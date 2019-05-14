@@ -30,6 +30,23 @@ namespace	AspNetCoreTodo.Controllers
 			// Render view using the model
             return View(model);
         }
-					
+			
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddItem(TodoItem newItem)
+        {
+            if(!ModelState.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
+
+            var succcessful = await _todoItemService.AddItemAsync(newItem);
+            if(!succcessful)
+            {
+                return BadRequest("Could not add item.");
+            }
+
+            return RedirectToAction("Index");
+
+        }
 	} 
 }
