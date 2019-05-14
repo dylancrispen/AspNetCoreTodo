@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using AspNetCoreTodo.Services;
 using Microsoft.EntityFrameworkCore;
 using AspNetCoreTodo.Data;
+using AspNetCoreTodo.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
